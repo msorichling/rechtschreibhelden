@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rechtschreib-Helden | Spielerisch richtig schreiben lernen</title>
+    <meta name="description" content="Eine motivierende Plattform für Diktate auf Papier und interaktive Rechtschreibübungen für die 5. und 6. Klasse.">
+    <!-- Lexend Schriftart für optimale Lesbarkeit bei Kindern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome für kindgerechte, moderne Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigationsleiste -->
+    <nav class="navbar" id="main-nav">
+        <div class="nav-container">
+            <div class="logo" id="nav-logo">
+                <i class="fa-solid fa-graduation-cap logo-icon"></i>
+                <span class="logo-text">Rechtschreib-<span class="logo-highlight">Helden</span></span>
+            </div>
+            
+            <ul class="nav-links">
+                <li class="nav-item active" data-target="dashboard" id="nav-dashboard">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <span>Übersicht</span>
+                </li>
+                <li class="nav-item" data-target="diktat-studio" id="nav-diktat">
+                    <i class="fa-solid fa-pen-nib"></i>
+                    <span>Diktat-Studio</span>
+                </li>
+                <li class="nav-item" data-target="fehler-detektiv" id="nav-detektiv">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Fehler-Detektiv</span>
+                </li>
+                <li class="nav-item" data-target="wort-blitz" id="nav-blitz">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Wort-Blitz</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hauptbereich -->
+    <main class="app-container">
+        <!-- Status-Leiste für Gamification (Sterne, Streak, Level) -->
+        <header class="status-bar" id="hero-status-bar">
+            <div class="status-card level-card">
+                <div class="status-icon level-icon">
+                    <i class="fa-solid fa-crown"></i>
+                </div>
+                <div class="status-info">
+                    <span class="status-label">Helden-Rang</span>
+                    <span class="status-value" id="hero-level">Level 1</span>
+                    <div class="xp-bar-container">
+                        <div class="xp-bar" id="hero-xp-bar" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-card stars-card">
+                <div class="status-icon star-icon">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="status-info">
+                    <span class="status-label">Sammel-Sterne</span>
+                    <span class="status-value" id="hero-stars">0</span>
+                </div>
+            </div>
+
+            <div class="status-card streak-card">
+                <div class="status-icon streak-icon" id="streak-icon-fire">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+                <div class="status-info">
+                    <span class="status-label">Wochen-Aktivität</span>
+                    <span class="status-value" id="hero-streak">0/2 Tage</span>
+                    <div class="streak-dots" id="streak-dots-container">
+                        <!-- Wird dynamisch mit Kreisen gefüllt -->
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamischer Inhaltsbereich (SPA) -->
+        <section class="content-section" id="active-view-container">
+            <!-- Wird dynamisch per JavaScript befüllt -->
+            <div class="loading-spinner">
+                <i class="fa-solid fa-circle-notch fa-spin"></i>
+                <p>Rechtschreib-Helden werden geladen...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Badge Freigeschaltet Modal -->
+    <div class="badge-modal" id="badge-unlock-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="confetti-container" id="modal-confetti"></div>
+            <div class="badge-celebration">
+                <i class="fa-solid fa-award award-glow"></i>
+                <h2>Abzeichen freigeschaltet!</h2>
+                <div class="unlocked-badge-display" id="unlocked-badge-card">
+                    <!-- Wird dynamisch gefüllt -->
+                </div>
+                <button class="btn btn-primary" id="badge-close-btn">Super, danke!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="diktatData.js" charset="utf-8"></script>
+    <script src="gamification.js" charset="utf-8"></script>
+    <script src="diktatStudio.js" charset="utf-8"></script>
+    <script src="fehlerDetektiv.js" charset="utf-8"></script>
+    <script src="wortBlitz.js" charset="utf-8"></script>
+    <script src="app.js" charset="utf-8"></script>
+</body>
+</html>
